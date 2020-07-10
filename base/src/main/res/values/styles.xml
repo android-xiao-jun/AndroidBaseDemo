@@ -1,0 +1,92 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <style name="AppTheme_Ai" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#232326</item>
+        <item name="colorPrimaryDark">#232326</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="ButtonThemStyleTwo">
+        <item name="android:background">@drawable/bg_them_btn_two</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- 底部弹出动画 -->
+    <style name="DialogBottomAnim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_bottom_out</item>
+
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 遮罩层 -->
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
+    <!-- 居中弹出动画 -->
+    <style name="DialogCenterAnim" parent="DialogBottomAnim">
+        <item name="android:windowEnterAnimation">@anim/window_ios_in</item>
+        <item name="android:windowExitAnimation">@anim/window_ios_out</item>
+    </style>
+
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/color_e6</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
+
+    <style name="NoBackGroundDialog" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="MyProgressBarStyle" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_bg</item>
+    </style>
+    <!-- 垂直方向的虚线 -->
+    <declare-styleable name="DividerView">
+        <!-- 虚线颜色 -->
+        <attr name="divider_line_color" format="color" />
+        <!-- 虚线宽度 -->
+        <attr name="dashThickness" format="dimension" />
+        <!-- 虚线dash宽度 -->
+        <attr name="dashLength" format="dimension" />
+        <!-- 虚线dash间隔 -->
+        <attr name="dashGap" format="dimension" />
+        <!-- 虚线朝向 -->
+        <attr name="divider_orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+    <style name="DefaultDialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <!-- 仿 ios 开关按钮 -->
+    <declare-styleable name="SwitchButton">
+        <!-- 是否选中 -->
+        <attr name="android:checked" />
+        <!-- 是否禁用 -->
+        <attr name="android:enabled" />
+    </declare-styleable>
+</resources>

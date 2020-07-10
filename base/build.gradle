@@ -1,0 +1,69 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api 'androidx.core:core-ktx:1.2.0'
+
+    api rootProject.ext.dependencies["appcompat"]
+    api rootProject.ext.dependencies["design"]
+    api rootProject.ext.dependencies["constraint"]
+    api rootProject.ext.dependencies["recyclerview"]
+    api rootProject.ext.dependencies["cardview"]
+    api rootProject.ext.dependencies["multidex"]
+    implementation rootProject.ext.dependencies["glide"]
+    annotationProcessor rootProject.ext.dependencies["compiler"]
+    api 'me.jessyan:autosize:1.1.2'
+    //头条自适应
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    api 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
+    api 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.1'
+    api 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+    api rootProject.ext.dependencies["rxjava"]
+    api rootProject.ext.dependencies["rxandroid"]
+    api project(':library_net')
+    api 'org.greenrobot:eventbus:3.1.1'
+    api 'com.github.tbruyelle:rxpermissions:0.10.2'
+
+    api "com.scwang.smartrefresh:SmartRefreshLayout:1.1.2"  //刷新控件
+    api "com.scwang.smartrefresh:SmartRefreshHeader:1.1.2"
+
+    api 'com.zhy:base-adapter:3.0.3'
+    //适配器listview
+    api 'com.zhy:base-rvadapter:3.0.3'
+
+    // 状态栏沉浸：https://github.com/gyf-dev/ImmersionBar
+    api 'com.gyf.immersionbar:immersionbar:3.0.0'
+    api 'de.hdodenhof:circleimageview:3.0.0'
+    api 'com.makeramen:roundedimageview:2.3.0'
+
+    api('com.github.LuckSiege.PictureSelector:picture_library:v2.5.6') {
+        exclude group: 'com.github.bumptech.glide'
+    }
+    api('com.github.SherlockGougou:BigImageViewPager:androidx-5.0.4') {// 查看大图
+        exclude group: 'com.github.bumptech.glide'
+    }
+}
