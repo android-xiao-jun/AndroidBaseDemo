@@ -28,4 +28,7 @@
     <color name="color_ff5561">#ffff5561</color>
     <color name="color_e33745">#ffe33745</color>
     <color name="color_F73131">#F73131</color>
+    <color name="black5">#0D000000</color>
+    <color name="black80">#CC000000</color>
+    <color name="black60">#99000000</color>
 </resources>

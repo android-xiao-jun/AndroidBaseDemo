@@ -6,36 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.example.jun.base.weight.SettingBar
+            android:id="@+id/setting_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:bar_leftText="left"
+            app:bar_rightIcon="@null"
+            app:bar_rightText="right"
+            app:bar_rightColor="@color/color_366be3"
+            app:bar_leftColor="@color/color_366be3"
+            app:bar_lineSize="2dp"
+            app:bar_leftIcon="@drawable/logo"/>
+    </LinearLayout>
+
     <Button
-        android:background="@color/color_366be3"
         android:id="@+id/get_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/color_366be3"
         android:text="Get Info"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:background="@color/color_366be3"
         android:id="@+id/next_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="下一页"
         android:layout_marginTop="@dimen/dp_15"
-        app:layout_constraintTop_toBottomOf="@id/get_info"
-        app:layout_constraintLeft_toLeftOf="@id/get_info"
-        />
-    <Button
         android:background="@color/color_366be3"
+        android:text="下一页"
+        app:layout_constraintLeft_toLeftOf="@id/get_info"
+        app:layout_constraintTop_toBottomOf="@id/get_info" />
+
+    <Button
         android:id="@+id/room"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Room"
         android:layout_marginTop="@dimen/dp_15"
-        app:layout_constraintTop_toBottomOf="@id/next_page"
+        android:background="@color/color_366be3"
+        android:text="Room"
         app:layout_constraintLeft_toLeftOf="@id/next_page"
-        />
+        app:layout_constraintTop_toBottomOf="@id/next_page" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
