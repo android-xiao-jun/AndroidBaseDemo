@@ -67,6 +67,7 @@ public final class SettingBar extends FrameLayout {
 
         LinearLayout.LayoutParams leftParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         leftParams.gravity = Gravity.CENTER_VERTICAL;
+        mLeftView.setGravity(Gravity.CENTER);
         mMainLayout.addView(mLeftView, leftParams);
 
         LinearLayout.LayoutParams rightParams = new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT);
@@ -99,11 +100,21 @@ public final class SettingBar extends FrameLayout {
 
         // 图标设置
         if (array.hasValue(R.styleable.SettingBar_bar_leftIcon)) {
-            setLeftIcon(array.getDrawable(R.styleable.SettingBar_bar_leftIcon));
+            int size = array.getDimensionPixelSize(R.styleable.SettingBar_bar_leftIconSize, 0);
+            if (size==0){
+                setLeftIcon(array.getDrawable(R.styleable.SettingBar_bar_leftIcon));
+            }else {
+                setLeftIconSize(array.getDrawable(R.styleable.SettingBar_bar_leftIcon), size);
+            }
         }
 
         if (array.hasValue(R.styleable.SettingBar_bar_rightIcon)) {
-            setRightIcon(array.getDrawable(R.styleable.SettingBar_bar_rightIcon));
+            int size = array.getDimensionPixelSize(R.styleable.SettingBar_bar_rightIconSize, 0);
+            if (size==0){
+                setRightIcon(array.getDrawable(R.styleable.SettingBar_bar_rightIcon));
+            }else {
+                setRightIconSize(array.getDrawable(R.styleable.SettingBar_bar_rightIcon), size);
+            }
         }
 
         // 文字颜色设置
@@ -215,11 +226,13 @@ public final class SettingBar extends FrameLayout {
     }
 
     public SettingBar setLeftIcon(Drawable drawable) {
-        drawable.setBounds(0, 0
-                , (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics())
-                , (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics())
-        );
         mLeftView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
+        return this;
+    }
+
+    public SettingBar setLeftIconSize(Drawable drawable, int size) {
+        drawable.setBounds(0, 0, size, size);
+        mLeftView.setCompoundDrawables(drawable, null, null, null);
         return this;
     }
 
@@ -237,6 +250,12 @@ public final class SettingBar extends FrameLayout {
 
     public SettingBar setRightIcon(Drawable drawable) {
         mRightView.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
+        return this;
+    }
+
+    public SettingBar setRightIconSize(Drawable drawable, int size) {
+        drawable.setBounds(0, 0, size, size);
+        mRightView.setCompoundDrawables(null, null, drawable, null);
         return this;
     }
 
