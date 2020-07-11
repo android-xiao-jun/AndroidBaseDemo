@@ -17,13 +17,15 @@
             android:id="@+id/setting_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:bar_leftText="left"
-            app:bar_rightIcon="@null"
-            app:bar_rightText="right"
-            app:bar_rightColor="@color/color_366be3"
             app:bar_leftColor="@color/color_366be3"
+            app:bar_leftIcon="@drawable/logo"
+            app:bar_leftIconSize="@dimen/dp_25"
+            app:bar_rightIconSize="@dimen/dp_20"
+            app:bar_rightIcon="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:bar_leftText="left"
             app:bar_lineSize="2dp"
-            app:bar_leftIcon="@drawable/logo"/>
+            app:bar_rightColor="@color/color_366be3"
+            app:bar_rightText="right" />
     </LinearLayout>
 
     <Button
