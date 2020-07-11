@@ -10,4 +10,5 @@
         <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">false</item>
     </style>
 
+
 </resources>
