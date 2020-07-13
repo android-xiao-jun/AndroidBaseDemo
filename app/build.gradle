@@ -60,6 +60,10 @@ android {
                     ".apk"
         }
     }
+//
+//    dataBinding {
+//        enabled = true
+//    }
 }
 
 static def releaseTime() {

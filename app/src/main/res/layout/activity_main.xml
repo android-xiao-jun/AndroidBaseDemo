@@ -30,11 +30,22 @@
 
         <androidx.appcompat.widget.AppCompatButton
             style="@style/ButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_10"
+            android:enabled="false"
             android:text="普通按钮" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_databing"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/dp_20"
+            android:text="databing" />
     </LinearLayout>
 
     <Button

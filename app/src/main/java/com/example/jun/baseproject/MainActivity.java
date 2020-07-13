@@ -46,6 +46,9 @@ public class MainActivity extends BaseActivity {
         View get_info = findViewById(R.id.get_info);
         View next_page = findViewById(R.id.next_page);
         View room = findViewById(R.id.room);
+        findViewById(R.id.btn_databing).setOnClickListener(v->{
+//            startActivity(new Intent(this,DataBingActivity.class));
+        });
         findViewById(R.id.setting_bar).setOnClickListener(v->{});
         get_info.setOnClickListener(v->{
             RefreshDialog.getInstance().showProcessDialog(this).setMessage("加载数据中..");
@@ -74,9 +77,7 @@ public class MainActivity extends BaseActivity {
 
         });
 
-        room.setOnClickListener(v->{
-            startActivity(new Intent(this,RoomActivity.class));
-        });
+        room.setOnClickListener(v-> startActivity(new Intent(this,RoomActivity.class)));
     }
 
     @Override

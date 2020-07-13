@@ -15,14 +15,21 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
+//Version Code的前缀。年月日，例如20181203。
+def getVersionCodePrefix() {
+    def date = new Date()
+    def versionCode = date.format('yyyyMMdd')
+    return Integer.parseInt(versionCode)
+}
 
 ext {
+    def currentVersionCode = getVersionCodePrefix()
     android = [
             compileSdkVersion: 29,
             buildToolsVersion: "29.0.2",
             minSdkVersion    : 19,
             targetSdkVersion : 29,
-            versionCode      : 1,
+            versionCode      : currentVersionCode,
             versionName      : "1.0"
     ]
     version = [
