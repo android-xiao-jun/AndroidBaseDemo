@@ -16,7 +16,7 @@ android {
 //            //F7:04:50:FC:F6:32:D4:61:B9:4E:29:D6:03:A0:81:48
 //        }
 //    }
-
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     defaultConfig {
         applicationId "com.example.jun.baseproject"
@@ -60,10 +60,6 @@ android {
                     ".apk"
         }
     }
-//
-//    dataBinding {
-//        enabled = true
-//    }
 }
 
 static def releaseTime() {

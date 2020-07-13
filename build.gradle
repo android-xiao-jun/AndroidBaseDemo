@@ -16,7 +16,7 @@ buildscript {
     }
 }
 //Version Code的前缀。年月日，例如20181203。
-def getVersionCodePrefix() {
+static def getVersionCodePrefix() {
     def date = new Date()
     def versionCode = date.format('yyyyMMdd')
     return Integer.parseInt(versionCode)
@@ -25,10 +25,10 @@ def getVersionCodePrefix() {
 ext {
     def currentVersionCode = getVersionCodePrefix()
     android = [
-            compileSdkVersion: 29,
-            buildToolsVersion: "29.0.2",
+            compileSdkVersion: 30,
+            buildToolsVersion: "30.0.1",
             minSdkVersion    : 19,
-            targetSdkVersion : 29,
+            targetSdkVersion : 30,
             versionCode      : currentVersionCode,
             versionName      : "1.0"
     ]
