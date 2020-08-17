@@ -10,7 +10,7 @@ import android.os.Looper;
  * @Time 2020/8/17
  */
 public class HandlerUtil {
-    public static HandlerUtil handlerUtil;
+    private static HandlerUtil handlerUtil;
 
     public static HandlerUtil getInstance() {
         if (handlerUtil == null) {
@@ -22,15 +22,11 @@ public class HandlerUtil {
     private Handler mainHandler;//主线程
     private Handler workHandler;//子线程
 
-    public HandlerUtil() {
-        init();
-    }
-
     public void init() {
-        handlerUtil.mainHandler = new Handler(Looper.getMainLooper());
+        getInstance().mainHandler = new Handler(Looper.getMainLooper());
         HandlerThread thread = new HandlerThread("workHandler");
         thread.start();
-        handlerUtil.workHandler = new Handler(thread.getLooper());
+        getInstance().workHandler = new Handler(thread.getLooper());
     }
 
     /**

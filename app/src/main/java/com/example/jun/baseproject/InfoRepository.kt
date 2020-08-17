@@ -1,5 +1,7 @@
 package com.example.jun.baseproject
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.util.concurrent.Executors
 
 /**
@@ -17,8 +19,18 @@ class InfoRepository {
             Thread.sleep(1000)
             task.onFinish(userData)
         }
+
+    }
+
+    suspend fun loadInfo() = withContext(Dispatchers.IO) {
+        val userData = UserData()
+        userData.userName = "修改${System.currentTimeMillis()}"
+        userData.userAge = 30
+        Thread.sleep(1000)
+        userData
     }
 }
+
 interface OnTaskFinish {
     fun onFinish(data: UserData)
 }

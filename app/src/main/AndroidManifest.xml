@@ -46,6 +46,7 @@
         <activity android:name=".NextPageActivity" />
         <activity android:name=".ThreeActivity" />
         <activity android:name=".RoomActivity" />
+        <activity android:name="com.example.data_binding.ActivityDataBindingActivity" />
 
     </application>
 

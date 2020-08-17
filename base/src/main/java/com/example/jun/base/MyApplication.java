@@ -6,6 +6,7 @@ import android.os.StrictMode;
 
 import androidx.multidex.MultiDexApplication;
 
+import com.example.jun.base.handler.HandlerUtil;
 import com.example.jun.base.utils.SPutils;
 import com.example.jun.base.utils.ToastUtils;
 import com.hsjskj.hy.library_net.net.HttpHeaderConfig;
@@ -113,6 +114,6 @@ public class MyApplication extends MultiDexApplication {
             }
         });
 
-
+        HandlerUtil.getInstance().init();
     }
 }

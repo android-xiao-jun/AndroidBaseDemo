@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.view.View;
 
 import com.chan.ypatchcore.YPatch;
+import com.example.data_binding.ActivityDataBindingActivity;
 import com.example.jun.base.BaseActivity;
 import com.example.jun.base.utils.CommonUtil;
 import com.example.jun.base.utils.ToastUtils;
@@ -47,7 +48,7 @@ public class MainActivity extends BaseActivity {
         View next_page = findViewById(R.id.next_page);
         View room = findViewById(R.id.room);
         findViewById(R.id.btn_databing).setOnClickListener(v->{
-//            startActivity(new Intent(this,DataBingActivity.class));
+            startActivity(new Intent(this, ActivityDataBindingActivity.class));
         });
         findViewById(R.id.setting_bar).setOnClickListener(v->{});
         get_info.setOnClickListener(v->{
