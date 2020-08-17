@@ -1,5 +1,9 @@
 package com.example.test_kotlin
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import com.example.jun.baseproject.NextPageActivity
 import java.lang.StringBuilder
 
 /**
@@ -64,7 +68,8 @@ fun main() {
 //    Outer().Inner().foo1()
 //    Outer.Nested().foo1()
 
-    var but = Button("登录按钮")
+    var but: Button = Button("登录按钮")
+//    but.start(null)
 //    val javaClass = but.javaClass
 //    val fields =javaClass.declaredFields
 //    fields.forEach {
@@ -94,6 +99,13 @@ fun main() {
 //    println("isEnable反射查询_$isEnable")
 
 
+//    val sum = funSum()
+//    println("sum${sum(10)}")
+//    println("sum${sum(10)}")
+//    println("sum${sum(10)}")
+
+    val list = listOf(1, 3, 9, 7, 9)
+    println(list.max())
 }
 
 interface OnClickListener {
@@ -158,13 +170,37 @@ class Button(private var b: Boolean) : View() {
         return super.click()
     }
 
-    constructor(txet: String) : this(true)
+    constructor(txet: String) : this(true) {
+        println("构造函数$txet")
+    }
 
-    var isEnable:Boolean
+    var isEnable: Boolean
         get() = b
         set(value) {
-            b=value
+            b = value
         }
+
+    companion object {
+
+
+    }
+}
+
+fun funSum(): (Int) -> Int {
+    var baseInt=0;
+    return fun(s: Int): Int{
+        baseInt+=s
+        return baseInt
+    }
+}
+
+//扩展函数
+fun Button.start(context: Context?): Unit {
+    var intent = Intent(context, NextPageActivity::class.java)
+    var bundle = Bundle()
+    bundle.putString("name", "")
+    intent.putExtras(bundle)
+    context?.startActivity(intent)
 }
 
 

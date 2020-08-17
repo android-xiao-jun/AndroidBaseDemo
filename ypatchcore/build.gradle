@@ -14,12 +14,6 @@ android {
             stl = "stlport_static"
         }
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
     ndkVersion "21.0.6352462"
 
 
@@ -33,5 +27,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.dependencies["appcompat"]
+//    implementation rootProject.ext.dependencies["appcompat"]
 }

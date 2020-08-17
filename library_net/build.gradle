@@ -8,13 +8,6 @@ android {
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
 }
 
 dependencies {
@@ -36,6 +29,5 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
 
-//    api 'com.tonystark.android:socket:4.1.0'
     api "org.java-websocket:Java-WebSocket:1.4.0"
 }
