@@ -1,5 +1,6 @@
 package com.example.data_binding
 
+import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.jun.base.handler.HandlerUtil
@@ -28,7 +29,7 @@ class DataBindingModel : ViewModel() {
         }
     }
 
-    fun onClickButton() {
+    fun onClickButton(v: View) {
         isLoading.value = true;
         HandlerUtil.getInstance().workHandler.post {
             Thread.sleep(2000)

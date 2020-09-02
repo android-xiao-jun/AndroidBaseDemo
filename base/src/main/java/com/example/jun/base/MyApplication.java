@@ -1,5 +1,6 @@
 package com.example.jun.base;
 
+import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.StrictMode;
@@ -31,16 +32,22 @@ import okhttp3.OkHttpClient;
 public class MyApplication extends MultiDexApplication {
 
     private static Context context;
+    private static Application instance;
 
     public static Context getContext() {
         return context;
     }
 
+    public static Application getInstance() {
+        return instance;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
         ToastUtils.init(this);
-        XLog.e("MyApplication_start"+System.currentTimeMillis());
+        XLog.e("MyApplication_start" + System.currentTimeMillis());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
             StrictMode.setVmPolicy(builder.build());
@@ -53,7 +60,6 @@ public class MyApplication extends MultiDexApplication {
 
         /* 上拉加载  footer 样式*/
         SmartRefreshLayout.setDefaultRefreshFooterCreator((context, layout) -> new ClassicsFooter(context));
-
 
 
         context = this;

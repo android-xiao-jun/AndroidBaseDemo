@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 
 import com.chan.ypatchcore.YPatch;
+import com.dt.sign.SignUtils;
 import com.example.data_binding.ActivityDataBindingActivity;
 import com.example.jun.base.BaseActivity;
 import com.example.jun.base.utils.CommonUtil;
@@ -36,9 +38,9 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void addListener() {
-        infoRepository =new InfoRepository();
+        infoRepository = new InfoRepository();
         infoFactory = new InfoFactory(infoRepository);
-        infoViewModel =new ViewModelProvider(this, infoFactory).get(InfoViewModel.class);
+        infoViewModel = new ViewModelProvider(this, infoFactory).get(InfoViewModel.class);
         getLifecycle().addObserver(infoViewModel);
     }
 
@@ -47,19 +49,22 @@ public class MainActivity extends BaseActivity {
         View get_info = findViewById(R.id.get_info);
         View next_page = findViewById(R.id.next_page);
         View room = findViewById(R.id.room);
-        findViewById(R.id.btn_databing).setOnClickListener(v->{
+        findViewById(R.id.btn_databing).setOnClickListener(v -> {
             startActivity(new Intent(this, ActivityDataBindingActivity.class));
         });
-        findViewById(R.id.setting_bar).setOnClickListener(v->{});
-        get_info.setOnClickListener(v->{
+        findViewById(R.id.setting_bar).setOnClickListener(v -> {
+            Log.e("getPublicKey", SignUtils.getPublicKey());
+            Log.e("getPrivateKey", SignUtils.getPrivateKey());
+        });
+        get_info.setOnClickListener(v -> {
             RefreshDialog.getInstance().showProcessDialog(this).setMessage("加载数据中..");
             infoViewModel.callInfo().observe(this, userData -> {
                 RefreshDialog.getInstance().cancleShow();
-                ToastUtils.showSingleToast(""+userData.getUserName());
+                ToastUtils.showSingleToast("" + userData.getUserName());
             });
         });
 
-        next_page.setOnClickListener(v->{
+        next_page.setOnClickListener(v -> {
 //            startActivity(new Intent(this,NextPageActivity.class));
 //            startActivity(new Intent(this,ThreeActivity.class));
             final File destApk = new File(Environment.getExternalStorageDirectory(), "dest.apk");
@@ -67,9 +72,9 @@ public class MainActivity extends BaseActivity {
 //            String str = Environment.getExternalStorageDirectory()+"/"+"old.apk";
             String str = getApplicationContext().getPackageResourcePath();
             try {
-                YPatch.patch(str, destApk.getAbsolutePath(),  patch.getAbsolutePath());
+                YPatch.patch(str, destApk.getAbsolutePath(), patch.getAbsolutePath());
 
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -78,7 +83,7 @@ public class MainActivity extends BaseActivity {
 
         });
 
-        room.setOnClickListener(v-> startActivity(new Intent(this,RoomActivity.class)));
+        room.setOnClickListener(v -> startActivity(new Intent(this, RoomActivity.class)));
     }
 
     @Override
